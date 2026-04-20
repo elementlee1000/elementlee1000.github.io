@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <title>Element Lee | Exhibitions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="artworks.html">ARTWORKS</a></li>
+            <li><a href="exhibitions.html" class="active">EXHIBITIONS</a></li>
+            <li><a href="#articles">ARTICLES</a></li>
+        </ul>
+    </nav>
+
+    <main id="exhibitions-main" class="container">
+        <h2 class="section-title">Exhibitions</h2>
+
+        <div class="exhibition-list">
+            <p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title"><em>A Drawing Network of Caves</em>, University of Applied Art, Vienna</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title"><em>Modernism's Punctum</em>, Yancheng Museum, Yancheng, China</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title"><em>5202</em>, Schauraum, Museumsquartier, Vienna</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title"><em>Pixel Cartography</em>, Expanded.Art, Berlin</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title"><em>Look at Me for Long</em>, Schauraum, MQ, Vienna</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title"><em>Happy Expressions</em>, Nantong Museum, China</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2020</span><span class="ex-title"><em>Home-coming Islet</em>, Yuan Museum, Chongqing, China</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2019</span><span class="ex-title"><em>The Synthetic Era</em>, MoCA Shanghai, Shanghai</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2019</span><span class="ex-title"><em>Future Intelligence</em>, Tank Shanghai, Shanghai</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2016</span><span class="ex-title">CAFA Biennale, CAFA Art Museum, Beijing</span></p>
+        </div>
+
+        <div class="organic-image-grid" id="exhibition-gallery"></div>
+        <div id="ex-load-sentinel"></div>
+    </main>
+
+    <footer>
+        <p class="footer-logo">李元素 / Element Lee</p>
+    </footer>
+
+    <script>
+    fetch('images/Exhibition/manifest.json')
+        .then(r => r.json())
+        .then(({ images }) => {
+            const BATCH = 12;
+            const grid = document.getElementById('exhibition-gallery');
+            const sentinel = document.getElementById('ex-load-sentinel');
+            let loaded = 0;
+
+            function loadBatch() {
+                const chunk = images.slice(loaded, loaded + BATCH);
+                if (!chunk.length) { observer.disconnect(); sentinel.style.display = 'none'; return; }
+                chunk.forEach(f => {
+                    const img = document.createElement('img');
+                    img.src = 'images/Exhibition/' + encodeURIComponent(f);
+                    img.loading = 'lazy';
+                    img.alt = '';
+                    grid.appendChild(img);
+                });
+                loaded += chunk.length;
+                if (loaded >= images.length) { observer.disconnect(); sentinel.style.display = 'none'; }
+            }
+
+            const observer = new IntersectionObserver(entries => {
+                if (entries[0].isIntersecting) loadBatch();
+            }, { rootMargin: '300px' });
+
+            observer.observe(sentinel);
+            loadBatch();
+        });
+    </script>
+</body>
+</html>

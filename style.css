@@ -1,5 +1,7 @@
 /* style.css */
 
+:root { color-scheme: only light; }
+
 /* 全局重置与基础设置：性能最优化 */
 * {
     margin: 0;
@@ -282,6 +284,34 @@ p.description {
     break-inside: avoid;
 }
 
+/* --- 展览页样式 --- */
+#exhibitions-main {
+    margin-top: 4rem;
+}
+
+.exhibition-list {
+    margin-left: 45%;
+    margin-bottom: 4rem;
+}
+
+.exhibition-entry {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.ex-year {
+    flex-shrink: 0;
+    width: 2.8rem;
+    color: #555;
+}
+
+.ex-title {
+    flex: 1;
+}
+
 /* --- 响应式 --- */
 
 @media (max-width: 600px) {
@@ -325,10 +355,10 @@ p.description {
         margin-bottom: 1.5rem;
     }
 
-    .footer-nav {
-        gap: 0.6rem;
-        font-size: 0.8rem;
+    .exhibition-list {
+        margin-left: 0;
     }
+
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
@@ -350,13 +380,7 @@ footer {
     background: transparent;
 }
 
-.footer-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
 .footer-logo {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    color: #777;
 }
