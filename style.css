@@ -1,0 +1,259 @@
+/* style.css */
+
+/* 全局重置与基础设置：性能最优化 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility; /* 提升文字清晰度 */
+    -webkit-font-smoothing: antialiased; /* macOS 字体平滑 */
+}
+
+/* 消除所有缓动和动画 */
+*, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+}
+
+html {
+    scroll-behavior: auto !important; /* 彻底禁用平滑滚动 */
+    background-color: #f1f1f1; /* 类似截图的浅灰色背景 */
+    color: #333;
+}
+
+body {
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    /* 悬停直接变化 */
+}
+
+a:hover {
+    color: #000;
+}
+
+/* 导航栏 */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 5%;
+    background-color: transparent; /* Wix风格的通透感 */
+    width: 100%;
+    z-index: 1000;
+    position: relative; /* 首页和总页不固定，详情页固定 */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links a.active {
+    font-weight: bold;
+}
+
+/* 通用布局 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+h2.section-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+p.description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+/* --- 首页样式 --- */
+#home-main {
+    text-align: left;
+    margin-top: 4rem;
+}
+
+#home-main h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+#home-main h1 .highlight {
+    font-weight: 700;
+}
+
+.intro-text-ch {
+    margin-bottom: 2rem;
+}
+
+.intro-text-en {
+    margin-bottom: 2rem;
+}
+
+.intro-text-ch, .intro-text-en {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+.credentials {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+/* 首页图标区域 */
+.icon-section {
+    margin-top: 3rem;
+}
+
+.icon-grid {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icon-label {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* SVG或图片占位符 */
+.social-icon, .nft-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.7;
+}
+
+.social-icon:hover, .nft-icon:hover {
+    opacity: 1;
+}
+
+.link-list {
+    margin-top: 2rem;
+}
+
+.contact-email {
+    margin-top: 2rem;
+}
+
+/* --- 作品总页样式 --- */
+#artworks-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.artwork-card {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    padding: 1rem;
+    position: relative;
+    /* 悬停直接变化 */
+}
+
+.artwork-card:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.artwork-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 总页保留强制方块封面，保持整洁 */
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.artwork-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artwork-info h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.artwork-info p {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* --- 具体作品页：瀑布流布局 --- */
+/* 这是核心修改点：消除整齐网格，采用有机的瀑布流布局 */
+
+.project-page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+.project-page-header {
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.project-page-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.project-main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+/* 有机瀑布流：纯 CSS，图片保留原始长宽比 */
+.organic-image-grid {
+    columns: 3 220px;
+    column-gap: 10px;
+}
+
+.organic-image-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
+
+/* 页脚和通用页脚导航 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    background: transparent;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo {
+    font-size: 1rem;
+}
