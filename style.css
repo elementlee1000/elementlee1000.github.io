@@ -18,7 +18,7 @@
 
 html {
     scroll-behavior: auto !important; /* 彻底禁用平滑滚动 */
-    background-color: #f1f1f1; /* 类似截图的浅灰色背景 */
+    background-color: #e7e4e4;
     color: #333;
 }
 
@@ -111,37 +111,56 @@ p.description {
     font-size: 0.9rem;
 }
 
+.intro-text-en {
+    padding-left: 4em;
+}
+
 .credentials {
     font-size: 0.8rem;
     color: #888;
     margin-bottom: 2rem;
+    padding-left: 4em;
 }
 
-/* 首页图标区域 */
-.icon-section {
+/* 首页文字链接区域 */
+.text-link-section {
     margin-top: 3rem;
-}
-
-.icon-grid {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
 }
 
 .icon-label {
     font-size: 0.8rem;
     color: #888;
+    margin-bottom: 0.6rem;
 }
 
-/* SVG或图片占位符 */
-.social-icon, .nft-icon {
-    width: 24px;
-    height: 24px;
-    opacity: 0.7;
+.text-link-grid {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    height: 3.5rem;
 }
 
-.social-icon:hover, .nft-icon:hover {
-    opacity: 1;
+.platform-link {
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    position: relative;
+}
+
+/* Social Media 位置偏移 */
+.x-link        { color: #3b2a1a; top: 14px; }
+.instagram-link { color: #d44a6a; top: 28px; }
+.youtube-link  { color: #cc2200; top: 4px; }
+
+/* NFTs 位置偏移 */
+.objkt-link    { color: #3b2a1a; top: 8px; }
+.gamma-link    { color: #c8960a; top: 22px; }
+.opensea-link  { color: #3a7bd5; top: 2px; }
+
+.platform-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
 }
 
 .link-list {
@@ -237,6 +256,66 @@ p.description {
     display: block;
     margin-bottom: 10px;
     break-inside: avoid;
+}
+
+/* --- 响应式 --- */
+
+@media (max-width: 600px) {
+    nav {
+        padding: 1.2rem 5%;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.75rem;
+    }
+
+    #home-main {
+        margin-top: 1.5rem;
+    }
+
+    #home-main h1 {
+        font-size: 1.8rem;
+    }
+
+
+    #artworks-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .artwork-info h3 {
+        font-size: 0.85rem;
+    }
+
+    .organic-image-grid {
+        columns: 2 140px;
+    }
+
+    .project-page-title {
+        font-size: 1.4rem;
+    }
+
+    h2.section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-nav {
+        gap: 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    #artworks-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .organic-image-grid {
+        columns: 2 200px;
+    }
 }
 
 /* 页脚和通用页脚导航 */
