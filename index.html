@@ -6,7 +6,55 @@
     <meta name="color-scheme" content="only light">
     <title>Element Lee</title>
     <link rel="icon" type="image/png" href="images/main/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Base ───────────────────────────────────── */
+        :root { color-scheme: only light; }
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+            transition: none !important; animation: none !important;
+        }
+        html { scroll-behavior: auto !important; background-color: #e7e4e4; color: #333; }
+        body { line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        a:hover { color: #000; }
+
+        /* ── Nav ─────────────────────────────────────── */
+        nav { display: flex; justify-content: center; align-items: center; padding: 2rem 5%; width: 100%; z-index: 1000; position: relative; }
+        .nav-links { list-style: none; display: flex; gap: 2rem; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+        .nav-links a.active { font-weight: bold; }
+
+        /* ── Home Main ───────────────────────────────── */
+        #home-main { max-width: 1200px; margin: 4rem auto 0; padding: 0 5%; position: relative; }
+        .home-logo { position: absolute; top: 0; right: 5%; width: 120px; height: 120px; object-fit: contain; border-radius: 12px; }
+        #home-main h1 { font-size: 2.5rem; font-weight: 300; line-height: 1.5; }
+        #home-main h1 .highlight { font-weight: 700; }
+
+        .intro-text-ch  { font-size: 0.9rem; margin-top: 2rem; margin-bottom: 2rem; padding-left: 2em; }
+        .intro-text-en  { font-size: 0.9rem; color: #333;  margin-top: 2rem; margin-bottom: 2rem; padding-left: 4em; }
+        .credentials    { font-size: 0.9rem; color: #333;  margin-top: 2rem; margin-bottom: 2rem; padding-left: 5em; }
+
+        .text-link-section { margin-top: 3rem; }
+        .icon-label { font-size: 0.8rem; color: #333; margin-bottom: 0.6rem; }
+        .text-link-grid { display: flex; gap: 2.5rem; align-items: flex-start; height: 3.5rem; padding-left: 2em; }
+        .platform-link { text-decoration: none; position: relative; }
+        .platform-link:hover { text-decoration: underline; opacity: 0.8; }
+
+        .contact-email { font-size: 0.9rem; color: #666; margin-top: 4rem; padding-left: 3em; }
+
+        /* ── Footer ─────────────────────────────────── */
+        footer { text-align: center; padding: 2rem; margin-top: 4rem; }
+        .footer-logo { font-size: 0.8rem; color: #777; }
+
+        /* ── Mobile ─────────────────────────────────── */
+        @media (max-width: 600px) {
+            nav { padding: 1.2rem 5%; }
+            .nav-links { gap: 1rem; font-size: 0.75rem; }
+            #home-main { margin-top: 1.5rem; }
+            #home-main h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -14,45 +62,45 @@
             <li><a href="index.html" class="active">HOME</a></li>
             <li><a href="artworks.html">ARTWORKS</a></li>
             <li><a href="exhibitions.html">EXHIBITIONS</a></li>
-            <li><a href="#articles">ARTICLES</a></li>
+            <li><a href="articles.html">ARTICLES</a></li>
         </ul>
     </nav>
 
-    <main id="home-main" class="container">
-        <img class="home-logo" src="images/main/logo.png" alt="Element Lee" style="border-radius: 12px;"> 
+    <main id="home-main">
+        <img class="home-logo" src="images/main/logo.png" alt="Element Lee">
         <h1>
             李元素<br>
             <span class="highlight">Element<br>Lee</span>
         </h1>
 
-        <p class="intro-text-ch" style="font-size: 0.9rem; margin-bottom: 2rem;padding-left: 2em;">美学自治，感察万物。<br>上承线描，下启像素。</p>
+        <p class="intro-text-ch">美学自治，感察万物。<br>上承线描，下启像素。</p>
 
-        <p class="intro-text-en" style="font-size: 0.9rem; color: #333; margin-bottom: 2rem; padding-left: 4em;">Element Lee (Yifan Li) is a Vienna-based Chinese digital artist. He works from an autonomous aesthetic to sense, think, and render the world. By employing pixels and characters as the fundamental units of the digital age, he continues the tradition of line drawing while expanding the boundaries of drawing. His practice seeks a condition in which meaning exceeds language and foregrounds the interconnection between works.</p>
+        <p class="intro-text-en">Element Lee (Yifan Li) is a Vienna-based Chinese digital artist. He works from an autonomous aesthetic to sense, think, and render the world. By employing pixels and characters as the fundamental units of the digital age, he continues the tradition of line drawing while expanding the boundaries of drawing. His practice seeks a condition in which meaning exceeds language and foregrounds the interconnection between works.</p>
 
-        <p class="credentials" style="font-size: 0.9rem; color: #333; margin-bottom: 2rem; padding-left: 5em;">
+        <p class="credentials">
             MA: Digital Arts at the University of Applied Arts Vienna (die Angewandte).<br>
             BA: Art Theory, China Central Academy of Fine Arts.
         </p>
 
         <div class="text-link-section">
-            <p class="icon-label" style="font-size: 0.8rem; color: #333; margin-bottom: 0.6rem;">Social Media :</p>
+            <p class="icon-label">Social Media :</p>
             <div class="text-link-grid">
-                <a href="https://x.com/Element_Lee" target="_blank" class="platform-link" style="font-size: 0.85rem; font-weight: bold; color: #3b2a1a; top: 14px;">&lt;X&gt;</a>
-                <a href="https://www.instagram.com/element_lee_/" target="_blank" class="platform-link" style="font-size: 0.85rem; font-weight: bold; color: #d44a6a; top: 28px;">&lt;Instagram&gt;</a>
-                <a href="https://www.youtube.com/playlist?list=PL3ZuaV6bA_JSPxCR0oLRrRgGmmjoh8T4M" target="_blank" class="platform-link" style="font-size: 0.85rem; font-weight: bold; color: #cc2200; top: 4px;">&lt;Youtube&gt;</a>
+                <a href="https://x.com/Element_Lee"           target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#3b2a1a; top:14px;">&lt;X&gt;</a>
+                <a href="https://www.instagram.com/element_lee_/" target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#d44a6a; top:28px;">&lt;Instagram&gt;</a>
+                <a href="https://www.youtube.com/playlist?list=PL3ZuaV6bA_JSPxCR0oLRrRgGmmjoh8T4M" target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#cc2200; top:4px;">&lt;Youtube&gt;</a>
             </div>
         </div>
 
         <div class="text-link-section">
-            <p class="icon-label" style="font-size: 0.8rem; color: #333; margin-bottom: 0.6rem;">NFTs:</p>
+            <p class="icon-label">NFTs:</p>
             <div class="text-link-grid">
-                <a href="https://objkt.com/" target="_blank" class="platform-link" style="font-size: 0.85rem; font-weight: bold; color: #3b2a1a; top: 8px;">&lt;Objkt&gt;</a>
-                <a href="https://gamma.io/" target="_blank" class="platform-link" style="font-size: 0.85rem; font-weight: bold; color: #c8960a; top: 22px;">&lt;Gamma&gt;</a>
-                <a href="https://opensea.io/" target="_blank" class="platform-link" style="font-size: 0.85rem; font-weight: bold; color: #3a7bd5; top: 2px;">&lt;OpenSea&gt;</a>
+                <a href="https://objkt.com/users/tz1cMaczNPh1Cxoy64kkytsAyxPPY9F7RGd5"    target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#3b2a1a; top:8px;">&lt;Objkt&gt;</a>
+                <a href="https://gamma.io/element-lee/created/"     target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#c8960a; top:22px;">&lt;Gamma&gt;</a>
+                <a href="https://opensea.io/0xfa8cd397d815577765c4c0d33a756fab4ad3a4e8"   target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#3a7bd5; top:2px;">&lt;OpenSea&gt;</a>
             </div>
         </div>
 
-        <p class="contact-email" style="font-size: 0.9rem; color: #666; margin-top: 4rem;padding-left: 3em;">Email:: elementlee1000@gmail.com</p>
+        <p class="contact-email">Email:: elementlee1000@gmail.com</p>
     </main>
 
     <footer>

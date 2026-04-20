@@ -5,7 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only light">
     <title>Element Lee | Exhibitions</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/main/logo.png">
+    <style>
+        /* ── Base ───────────────────────────────────── */
+        :root { color-scheme: only light; }
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+            transition: none !important; animation: none !important;
+        }
+        html { scroll-behavior: auto !important; background-color: #e7e4e4; color: #333; }
+        body { line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        a:hover { color: #000; }
+
+        /* ── Nav ─────────────────────────────────────── */
+        nav { display: flex; justify-content: center; align-items: center; padding: 2rem 5%; width: 100%; z-index: 1000; position: relative; }
+        .nav-links { list-style: none; display: flex; gap: 2rem; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+        .nav-links a.active { font-weight: bold; }
+
+        /* ── Exhibitions Main ────────────────────────── */
+        #exhibitions-main { max-width: 1200px; margin: 4rem auto 0; padding: 0 5%; }
+
+        h2.section-title { font-size: 2rem; font-weight: 300; margin-bottom: 3rem; text-align: left; }
+
+        .exhibition-list { margin-left: 45%; margin-bottom: 4rem; }
+
+        .exhibition-entry { display: flex; gap: 1.5rem; font-size: 0.95rem; line-height: 1.8; color: #333; }
+        .ex-year { flex-shrink: 0; width: 2.8rem; color: #555; }
+        .ex-title { flex: 1; }
+
+        .organic-image-grid { columns: 3 220px; column-gap: 10px; }
+        .organic-image-grid img { width: 100%; height: auto; display: block; margin-bottom: 10px; break-inside: avoid; }
+
+        /* ── Footer ─────────────────────────────────── */
+        footer { text-align: center; padding: 2rem; margin-top: 4rem; }
+        .footer-logo { font-size: 0.8rem; color: #777; }
+
+        /* ── Mobile ─────────────────────────────────── */
+        @media (max-width: 600px) {
+            nav { padding: 1.2rem 5%; }
+            .nav-links { gap: 1rem; font-size: 0.75rem; }
+            h2.section-title { font-size: 1.5rem; margin-bottom: 1.5rem; }
+            .exhibition-list { margin-left: 0; }
+            .organic-image-grid { columns: 2 140px; }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+            .organic-image-grid { columns: 2 200px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -13,11 +62,11 @@
             <li><a href="index.html">HOME</a></li>
             <li><a href="artworks.html">ARTWORKS</a></li>
             <li><a href="exhibitions.html" class="active">EXHIBITIONS</a></li>
-            <li><a href="#articles">ARTICLES</a></li>
+            <li><a href="articles.html">ARTICLES</a></li>
         </ul>
     </nav>
 
-    <main id="exhibitions-main" class="container">
+    <main id="exhibitions-main">
         <h2 class="section-title">Exhibitions</h2>
 
         <div class="exhibition-list">

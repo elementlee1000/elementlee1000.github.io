@@ -6,19 +6,64 @@
     <meta name="color-scheme" content="only light">
     <title>Element Lee</title>
     <link rel="icon" type="image/png" href="images/main/logo.png">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── Base ───────────────────────────────────── */
+        :root { color-scheme: only light; }
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+            transition: none !important; animation: none !important;
+        }
+        html { scroll-behavior: auto !important; background-color: #e7e4e4; color: #333; }
+        body { line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        a:hover { color: #000; }
+
+        /* ── Nav (fixed on detail page) ─────────────── */
+        nav { display: flex; justify-content: center; align-items: center; padding: 2rem 5%; width: 100%; z-index: 1000; position: fixed; top: 0; background-color: #e7e4e4; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .nav-links { list-style: none; display: flex; gap: 2rem; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+        .nav-links a.active { font-weight: bold; }
+
+        /* ── Project Main ────────────────────────────── */
+        #project-main { max-width: 1000px; margin: 6rem auto 0; padding: 2rem 5%; }
+
+        .project-page-header { text-align: left; margin-bottom: 3rem; }
+        .project-page-title { font-size: 2rem; font-weight: 300; margin-bottom: 1rem; }
+        p.description { font-size: 0.9rem; color: #666; margin-bottom: 2rem; max-width: 800px; }
+
+        .project-main-image { width: 100%; height: auto; border-radius: 4px; margin-bottom: 2rem; }
+
+        .organic-image-grid { columns: 3 220px; column-gap: 10px; }
+        .organic-image-grid img { width: 100%; height: auto; display: block; margin-bottom: 10px; break-inside: avoid; }
+
+        /* ── Footer ─────────────────────────────────── */
+        footer { text-align: center; padding: 2rem; margin-top: 4rem; }
+        .footer-logo { font-size: 0.8rem; color: #777; }
+
+        /* ── Mobile ─────────────────────────────────── */
+        @media (max-width: 600px) {
+            nav { padding: 1.2rem 5%; }
+            .nav-links { gap: 1rem; font-size: 0.75rem; }
+            .project-page-title { font-size: 1.4rem; }
+            .organic-image-grid { columns: 2 140px; }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+            .organic-image-grid { columns: 2 200px; }
+        }
+    </style>
 </head>
 <body>
-    <nav style="position: fixed; top: 0; background-color: #e7e4e4; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <nav>
         <ul class="nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="artworks.html" class="active">ARTWORKS</a></li>
             <li><a href="exhibitions.html">EXHIBITIONS</a></li>
-            <li><a href="#articles">ARTICLES</a></li>
+            <li><a href="articles.html">ARTICLES</a></li>
         </ul>
     </nav>
 
-    <main class="project-page-container container" style="margin-top: 6rem;">
+    <main id="project-main">
         <div class="project-page-header">
             <h1 class="project-page-title" id="project-title"></h1>
             <p class="description" id="project-meta"></p>
@@ -31,7 +76,7 @@
         <div id="load-sentinel" style="height:1px;"></div>
     </main>
 
-    <footer style="margin-top: 4rem;">
+    <footer>
         <p class="footer-logo">李元素 / Element Lee</p>
     </footer>
     <script src="gallery.js"></script>
