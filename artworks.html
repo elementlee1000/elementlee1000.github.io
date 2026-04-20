@@ -19,73 +19,27 @@
     <main id="artworks-main" class="container">
         <h2 class="section-title">Artworks</h2>
 
-        <p class="description">
-            <a href="#drawing-networks">Drawing Networks</a>, <a href="#pixel-arts">Pixel Arts</a>, <a href="#lines-dots">Lines and Dots</a>,<br>
-            <a href="#ascii-art">ASCII Art</a>, <a href="#calligraphic-drawings">Calligraphic Drawings</a>, <a href="#glitch">Glitch</a>, <a href="#digital-paintings">Digital Paintings</a>, <a href="#digital-textures">Digital Textures</a>, <a href="#artistic-research">Artistic Research</a>, <a href="#aesthetics-archaeology">Aesthetics Archaeology</a>
-            <img src="images/cursor-pointer.png" alt="Pointer" style="width: 16px; margin-left: 5px;">
+        <p class="series-index description">
+            Series / Methodologies:<br>
+            <a href="#">Drawing Networks</a> ,&nbsp;&nbsp;
+            <a href="#">Pixel Arts</a> ,&nbsp;&nbsp;
+            <a href="#">Lines and Dots</a> ,<br>
+            <a href="#">Ascii Art</a> ,&nbsp;&nbsp;
+            <a href="#">Calligraphic Drawings</a> ,&nbsp;&nbsp;
+            <a href="#">1bit</a> ,<br>
+            <a href="#">Digital Painting</a> ,&nbsp;&nbsp;
+            <a href="#">Digital Textures</a> ,&nbsp;&nbsp;
+            <a href="#">Artistic Research</a> ,<br>
+            <a href="#">Aesthetics Archaeology</a>
+            <img src="images/cursor-pointer.png" alt="" style="width:16px;vertical-align:middle;margin-left:6px;">
         </p>
 
-        <div id="artworks-list">
-            <a href="project-detail.html?p=cave-network" class="artwork-card">
-                <div class="artwork-image-wrapper">
-                    <img src="images/cave-network-thumb.jpg" alt="Cave Network">
-                </div>
-                <div class="artwork-info">
-                    <h3>Cave Network</h3>
-                    <p>Explores cave aesthetics through a Drawing Network approach.</p>
-                </div>
-            </a>
+        <div id="artworks-list"></div>
 
-            <a href="project-detail.html?p=physical-works" class="artwork-card">
-                <div class="artwork-image-wrapper">
-                    <img src="images/physical-works-thumb.jpg" alt="Physical Works">
-                </div>
-                <div class="artwork-info">
-                    <h3>Physical Works</h3>
-                    <p>Prints, Laser, 3D prints</p>
-                </div>
-            </a>
-
-            <a href="project-detail.html?p=ascii-art" class="artwork-card">
-                <div class="artwork-image-wrapper">
-                    <img src="images/ascii-thumb.jpg" alt="ASCII Art">
-                </div>
-                <div class="artwork-info">
-                    <h3>ASCII (character-based art)</h3>
-                </div>
-            </a>
-
-            <a href="project-detail.html?p=1bit" class="artwork-card">
-                <div class="artwork-image-wrapper">
-                    <img src="images/1bit-thumb.jpg" alt="1bit">
-                </div>
-                <div class="artwork-info">
-                    <h3>1bit</h3>
-                </div>
-            </a>
-
-            <a href="project-detail.html?p=lights-series" class="artwork-card">
-                <div class="artwork-image-wrapper">
-                    <img src="images/lights-thumb.jpg" alt="Lights Series">
-                </div>
-                <div class="artwork-info">
-                    <h3>Lights Series</h3>
-                </div>
-            </a>
-
-            <a href="project-detail.html?p=architectures" class="artwork-card">
-                <div class="artwork-image-wrapper">
-                    <img src="images/architectures-thumb.jpg" alt="Architectures">
-                </div>
-                <div class="artwork-info">
-                    <h3>Architectures</h3>
-                </div>
-            </a>
-        </div>
-
-        <div class="description" style="margin-top: 3rem;">
-            <a href="#digital-paintings">Digital Paintings</a>, <a href="#drawing-network">Drawing Network</a>_<br><br>
-            <a href="#video-works">Video works</a>
+        <div class="description artworks-footer-links">
+            <a href="#">Digital Paintings</a>_<br>
+            <a href="#">Drawing Network</a>_<br><br>
+            <a href="#">Video works</a>
         </div>
     </main>
 
@@ -96,7 +50,35 @@
             <a href="#exhibitions">EXHIBITIONS</a>
             <a href="#articles">ARTICLES</a>
         </div>
-        <p class="footer-logo">素元素 / Element Lee</p>
+        <p class="footer-logo">李元素 / Element Lee</p>
     </footer>
+
+    <script>
+    fetch('images/Artworks/manifest.json')
+        .then(r => r.json())
+        .then(data => {
+            const list = document.getElementById('artworks-list');
+            data.artworks.forEach(artwork => {
+                if (!artwork.images.length) return;
+
+                const randomFile = artwork.images[Math.floor(Math.random() * artwork.images.length)];
+                const imgSrc = 'images/Artworks/' + encodeURIComponent(artwork.folder) + '/' + encodeURIComponent(randomFile);
+
+                const a = document.createElement('a');
+                a.href = 'project-detail.html?p=' + encodeURIComponent(artwork.folder);
+                a.className = 'artwork-card';
+
+                a.innerHTML =
+                    '<img class="artwork-thumb" src="' + imgSrc + '" alt="' + artwork.title + '">' +
+                    '<div class="artwork-info">' +
+                        '<h3>' + artwork.title + '</h3>' +
+                        '<span class="info-colon">:</span>' +
+                        (artwork.description ? '<p>' + artwork.description + '</p>' : '') +
+                    '</div>';
+
+                list.appendChild(a);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+name: Scan Images
+
+on:
+  push:
+    paths:
+      - 'images/**'
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run scan_images.py
+        run: python scan_images.py
+
+      - name: Commit updated manifests
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add images/Artworks/manifest.json images/Artworks/*/manifest.json
+          git diff --cached --quiet || git commit -m "auto: update image manifests"
+          git push

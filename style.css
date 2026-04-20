@@ -172,49 +172,73 @@ p.description {
 }
 
 /* --- 作品总页样式 --- */
+.series-index {
+    margin-top: 1.5rem;
+    line-height: 2;
+}
+
 #artworks-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 3rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 2rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+/* 右列偏移下移，制造错落感 */
+.artwork-card:nth-child(even) {
+    margin-top: 3.5rem;
 }
 
 .artwork-card {
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    padding: 1rem;
-    position: relative;
-    /* 悬停直接变化 */
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    max-width: 180px;
 }
 
-.artwork-card:hover {
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.artwork-image-wrapper {
+.artwork-thumb {
     width: 100%;
-    aspect-ratio: 1 / 1; /* 总页保留强制方块封面，保持整洁 */
-    overflow: hidden;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-.artwork-image-wrapper img {
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 12px; /* M3 Medium */
+    display: block;
+    background: #e8e8e8;
+}
+
+.artwork-info {
+    margin-top: 0.5rem;
 }
 
 .artwork-info h3 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    margin-bottom: 0.2rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.info-colon {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.2;
+    margin-top: 0.1rem;
 }
 
 .artwork-info p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #888;
+    margin-top: 0.2rem;
+    line-height: 1.4;
+}
+
+.artwork-card:hover .artwork-thumb {
+    opacity: 0.85;
+}
+
+.artworks-footer-links {
+    margin-top: 3rem;
 }
 
 /* --- 具体作品页：瀑布流布局 --- */
