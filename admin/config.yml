@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: elementlee1000/elementlee1000.github.io
+  name: git-gateway
   branch: main
-  base_url: https://harmonious-bonbon-fc84cd.netlify.app
 
 media_folder: "images/uploads"
 public_folder: "images/uploads"
