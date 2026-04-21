@@ -35,7 +35,12 @@
         .project-main-image { width: 100%; height: auto; border-radius: 4px; margin-bottom: 2rem; }
 
         .organic-image-grid { columns: 3 220px; column-gap: 10px; }
-        .organic-image-grid img { width: 100%; height: auto; display: block; margin-bottom: 10px; break-inside: avoid; }
+        .organic-image-grid img { width: 100%; height: auto; display: block; margin-bottom: 10px; break-inside: avoid; cursor: zoom-in; }
+        .project-main-image { cursor: zoom-in; }
+
+        /* ── Lightbox ────────────────────────────────── */
+        #lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.88); display: none; align-items: center; justify-content: center; cursor: zoom-out; }
+        #lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; display: block; cursor: default; transition: none !important; }
 
         /* ── Footer ─────────────────────────────────── */
         footer { text-align: center; padding: 2rem; margin-top: 4rem; }
@@ -79,6 +84,20 @@
     <footer>
         <p class="footer-logo">李元素 / Element Lee</p>
     </footer>
+
+    <div id="lightbox"><img id="lightbox-img" src="" alt=""></div>
+
     <script src="gallery.js"></script>
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+
+        document.addEventListener('click', e => {
+            const img = e.target.closest('.organic-image-grid img, .project-main-image');
+            if (img) { lbImg.src = img.src; lb.style.display = 'flex'; }
+        });
+        lb.addEventListener('click', () => { lb.style.display = 'none'; lbImg.src = ''; });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { lb.style.display = 'none'; lbImg.src = ''; } });
+    </script>
 </body>
 </html>
