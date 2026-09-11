@@ -32,6 +32,7 @@
         p.description { font-size: 0.9rem; color: #666; margin-bottom: 2rem; max-width: 800px; }
 
         .series-index { margin-top: 1.5rem; line-height: 2; }
+        .series-list { margin-left: 1rem; font-size: 0.9rem; font-style: italic; color: #666; line-height: 2; }
 
         #artworks-list {
             display: grid;
@@ -88,12 +89,7 @@
         <p class="series-index description">
             Series / Methodologies:<br>
         </p>
-        <p style = "margin-left: 1rem; font-size: 0.9rem; font-style:italic; color: #666;"> 
-            Drawing Networks ,   Pixel Arts ,   Lines and Dots , Ascii Art ,   Calligraphic Drawings ,   1bit , 
-            Digital Painting ,   Digital Textures ,   Artistic Research ,
-            Aesthetics Archaeology 
-            <img src="images/cursor-pointer.png" alt="" style="width:16px; vertical-align:middle; margin-left:6px;">
-        </p>
+        <p class="series-list" id="series-list"></p>
 
         <div id="artworks-list"></div>
 
@@ -113,6 +109,20 @@
         .then(r => r.json())
         .then(data => {
             const list = document.getElementById('artworks-list');
+            const series = document.getElementById('series-list');
+
+            // 类别列表由 manifest.json 动态生成：
+            // 在 images/Artworks 下增删类别文件夹并运行 scan_images.py 后，此处自动更新，无需改本页
+            data.artworks.forEach((artwork, i) => {
+                if (i > 0) series.appendChild(document.createTextNode(' ,  '));
+                series.appendChild(document.createTextNode(artwork.title || artwork.folder));
+            });
+            const cursor = document.createElement('img');
+            cursor.src = 'images/cursor-pointer.png';
+            cursor.alt = '';
+            cursor.style.cssText = 'width:16px; vertical-align:middle; margin-left:6px;';
+            series.appendChild(cursor);
+
             data.artworks.forEach(artwork => {
                 if (!artwork.images.length) return;
 
