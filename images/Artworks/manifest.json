@@ -1,9 +1,75 @@
 {
   "artworks": [
     {
-      "folder": "1bit",
-      "title": "1bit",
+      "folder": "Ascii-art",
+      "title": "ASCII (character-based art)",
+      "title_zh": "ASCII（字符艺术）",
       "description": "",
+      "description_zh": "",
+      "images": [
+        "AsciiEdit - 260126 - 700p-export.png",
+        "Bridge-export.png",
+        "Cave-export.png",
+        "Chart-export.png",
+        "Flat Mountain-export.png",
+        "Platform-export.png",
+        "Section-export.png",
+        "Tele-temple-export.png",
+        "Terminal-export.png",
+        "Tower-export.png",
+        "temple-export.png",
+        "建筑楼-export.png"
+      ]
+    },
+    {
+      "folder": "Physical Works",
+      "title": "Physical Works",
+      "title_zh": "实体作品",
+      "description": "",
+      "description_zh": "",
+      "images": [
+        "1760253788184.jpg",
+        "FoldingScreen (3).jpg",
+        "FoldingScreen (4).jpg",
+        "IMG_20241026_174313.jpg",
+        "IMG_20250710_123948.jpg",
+        "IMG_20251019_103535.jpg",
+        "IMG_20260712_103846.jpg",
+        "Main - Bright.jpg",
+        "Pulpit Foldingscreen.jpg",
+        "图.jpg",
+        "数字手艺 (1).jpg",
+        "数字手艺 (2).jpg",
+        "楼梯.jpg",
+        "高架.jpg"
+      ]
+    },
+    {
+      "folder": "Pixel Photography",
+      "title": "Pixel Photography",
+      "title_zh": "像素摄影",
+      "description": "",
+      "description_zh": "",
+      "images": [
+        "1bitDither - 2014 - 200px - 10x (1).png",
+        "1bitDither - 2014 - 256px - 8x.png",
+        "1bitDither - 2017 - 300px - 8x.png",
+        "1bitDither - 260717 - 300px - 8x.png",
+        "1bitDither - 260719 - 256px - 10x.png",
+        "1bitDither - 260808 - 200px - 10x (1).png",
+        "1bitDither - 260808 - 200px - 10x.png",
+        "1bitDither - 260808 - 300px - 8x.png",
+        "PixelEdit - 260803 - 208 - 10x.png",
+        "PixelEdit - 260806 - 160 - 10x.png",
+        "系列封面.png"
+      ]
+    },
+    {
+      "folder": "Pixelart - 1bit",
+      "title": "Pixelart - 1bit",
+      "title_zh": "像素艺术 - 1bit",
+      "description": "",
+      "description_zh": "",
       "images": [
         "1723806369152-2.png",
         "1723806369152.png",
@@ -88,28 +154,11 @@
       ]
     },
     {
-      "folder": "Ascii-art",
-      "title": "ASCII (character-based art)",
-      "description": "",
-      "images": [
-        "AsciiEdit - 260126 - 700p-export.png",
-        "Bridge-export.png",
-        "Cave-export.png",
-        "Chart-export.png",
-        "Flat Mountain-export.png",
-        "Platform-export.png",
-        "Section-export.png",
-        "Tele-temple-export.png",
-        "Terminal-export.png",
-        "Tower-export.png",
-        "temple-export.png",
-        "建筑楼-export.png"
-      ]
-    },
-    {
-      "folder": "Cave Network",
-      "title": "A Drawing Network of Caves",
+      "folder": "Pixelart - Cave Network",
+      "title": "Pixelart - Cave Network",
+      "title_zh": "像素艺术 - 洞穴网络",
       "description": "This project explores cave aesthetics through a Drawing Network approach.",
+      "description_zh": "本项目以「绘图网络」的方法探索洞穴美学。",
       "images": [
         ", 200p 2022.png",
         "1697824211367.png",
@@ -126,45 +175,6 @@
         "Network 2.png",
         "dialogue 3-2.png",
         "洞穴危险 (1).png"
-      ]
-    },
-    {
-      "folder": "Physical Works",
-      "title": "Physical Works",
-      "description": "",
-      "images": [
-        "1760253788184.jpg",
-        "FoldingScreen (3).jpg",
-        "FoldingScreen (4).jpg",
-        "IMG_20241026_174313.jpg",
-        "IMG_20250710_123948.jpg",
-        "IMG_20251019_103535.jpg",
-        "IMG_20260712_103846.jpg",
-        "Main - Bright.jpg",
-        "Pulpit Foldingscreen.jpg",
-        "图.jpg",
-        "数字手艺 (1).jpg",
-        "数字手艺 (2).jpg",
-        "楼梯.jpg",
-        "高架.jpg"
-      ]
-    },
-    {
-      "folder": "Pixel Photography",
-      "title": "Pixel Photography",
-      "description": "",
-      "images": [
-        "1bitDither - 2014 - 200px - 10x (1).png",
-        "1bitDither - 2014 - 256px - 8x.png",
-        "1bitDither - 2017 - 300px - 8x.png",
-        "1bitDither - 260717 - 300px - 8x.png",
-        "1bitDither - 260719 - 256px - 10x.png",
-        "1bitDither - 260808 - 200px - 10x (1).png",
-        "1bitDither - 260808 - 200px - 10x.png",
-        "1bitDither - 260808 - 300px - 8x.png",
-        "PixelEdit - 260803 - 208 - 10x.png",
-        "PixelEdit - 260806 - 160 - 10x.png",
-        "系列封面.png"
       ]
     }
   ]
