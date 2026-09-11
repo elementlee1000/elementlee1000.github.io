@@ -88,18 +88,6 @@
       ]
     },
     {
-      "folder": "Architectures",
-      "title": "Architectures",
-      "description": "",
-      "images": [
-        "Ascii - 260319 - 157.png",
-        "Ascii - 260329 - 84.png",
-        "PixelEdit - 260427 - 300 - 8x (3).png",
-        "Print - 260409 - 1600.png",
-        "双螺旋 (3).png"
-      ]
-    },
-    {
       "folder": "Ascii-art",
       "title": "ASCII (character-based art)",
       "description": "",
@@ -159,6 +147,24 @@
         "数字手艺 (2).jpg",
         "楼梯.jpg",
         "高架.jpg"
+      ]
+    },
+    {
+      "folder": "Pixel Photography",
+      "title": "Pixel Photography",
+      "description": "",
+      "images": [
+        "1bitDither - 2014 - 200px - 10x (1).png",
+        "1bitDither - 2014 - 256px - 8x.png",
+        "1bitDither - 2017 - 300px - 8x.png",
+        "1bitDither - 260717 - 300px - 8x.png",
+        "1bitDither - 260719 - 256px - 10x.png",
+        "1bitDither - 260808 - 200px - 10x (1).png",
+        "1bitDither - 260808 - 200px - 10x.png",
+        "1bitDither - 260808 - 300px - 8x.png",
+        "PixelEdit - 260803 - 208 - 10x.png",
+        "PixelEdit - 260806 - 160 - 10x.png",
+        "系列封面.png"
       ]
     }
   ]
