@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only light">
-    <title>Element Lee</title>
+    <title data-en="Element Lee" data-zh="李元素 | Element Lee">Element Lee</title>
     <link rel="icon" type="image/png" href="images/main/logo.png">
+    <script src="i18n.js"></script>
     <style>
         /* ── Base ───────────────────────────────────── */
         :root { color-scheme: only light; }
+
+        /* 语言切换：只显示当前语言的元素（i18n.js 负责设置 html[data-lang]） */
+        html[data-lang="en"] [lang="zh"] { display: none !important; }
+        html[data-lang="zh"] [lang="en"] { display: none !important; }
         *, *::before, *::after {
             margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -59,10 +64,11 @@
 <body>
     <nav>
         <ul class="nav-links">
-            <li><a href="index.html" class="active">HOME</a></li>
-            <li><a href="artworks.html">ARTWORKS</a></li>
-            <li><a href="exhibitions.html">EXHIBITIONS</a></li>
-            <li><a href="articles.html">ARTICLES</a></li>
+            <li><a href="index.html" class="active"><span lang="en">HOME</span><span lang="zh">首页</span></a></li>
+            <li><a href="artworks.html"><span lang="en">ARTWORKS</span><span lang="zh">作品</span></a></li>
+            <li><a href="exhibitions.html"><span lang="en">EXHIBITIONS</span><span lang="zh">展览</span></a></li>
+            <li><a href="articles.html"><span lang="en">ARTICLES</span><span lang="zh">文章</span></a></li>
+            <li><a href="#" id="lang-toggle"><span lang="en">中文</span><span lang="zh">EN</span></a></li>
         </ul>
     </nav>
 
@@ -73,26 +79,32 @@
             <span class="highlight">Element<br>Lee</span>
         </h1>
 
-        <p class="intro-text-ch">美学自治，感察万物。<br>上承线描，下启像素。</p>
+        <p class="intro-text-ch" lang="zh">美学自治，感察万物。<br>上承线描，下启像素。</p>
 
-        <p class="intro-text-en">Element Lee (Yifan Li) is a Vienna-based Chinese experimental artist. His primary creative practices include pixel art, ASCII art, and algorithmic art. </p>
+        <p class="intro-text-en" lang="en">Element Lee (Yifan Li) is a Vienna-based Chinese experimental artist. His primary creative practices include pixel art, ASCII art, and algorithmic art. </p>
 
-        <p class="credentials">
+        <p class="credentials" lang="en">
             MA: Digital Arts at the University of Applied Arts Vienna (die Angewandte).<br>
             BA: Art Theory, China Central Academy of Fine Arts.
         </p>
 
+        <p class="credentials" lang="zh">
+            硕士：维也纳应用艺术大学（die Angewandte）数字艺术。<br>
+            学士：中央美术学院，艺术理论。
+        </p>
+
         <div class="text-link-section">
-            <p class="icon-label">Social Media :</p>
+            <p class="icon-label"><span lang="en">Social Media :</span><span lang="zh">社交媒体：</span></p>
             <div class="text-link-grid">
                 <a href="https://x.com/Element_Lee"           target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#3b2a1a; top:14px;">&lt;X&gt;</a>
+                <a href="https://www.xiaohongshu.com/user/profile/614f044f0000000002022cfe" target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#E34234; top:0px;"><span lang="en">&lt;rednote&gt;</span><span lang="zh">&lt;小红书&gt;</span></a>
                 <a href="https://www.youtube.com/playlist?list=PL3ZuaV6bA_JSPxCR0oLRrRgGmmjoh8T4M" target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#cc2200; top:28px;">&lt;Youtube&gt;</a>
                 <a href="https://www.instagram.com/element_lee_/" target="_blank" class="platform-link" title="blocked" style="font-size:0.85rem; font-weight:bold; color:#999; text-decoration:line-through; top:4px;">&lt;Instagram&gt;</a>
             </div>
         </div>
 
         <div class="text-link-section">
-            <p class="icon-label">NFTs:</p>
+            <p class="icon-label"><span lang="en">NFTs:</span><span lang="zh">NFT：</span></p>
             <div class="text-link-grid">
                 <a href="https://objkt.com/users/tz1cMaczNPh1Cxoy64kkytsAyxPPY9F7RGd5"    target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#3b2a1a; top:8px;">&lt;Objkt&gt;</a>
                 <a href="https://gamma.io/element-lee/created/"     target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#c8960a; top:22px;">&lt;Gamma&gt;</a>
@@ -101,14 +113,14 @@
         </div>
 
         <div class="text-link-section">
-            <p class="icon-label">Indie Dev:</p>
+            <p class="icon-label"><span lang="en">Indie Dev:</span><span lang="zh">独立开发：</span></p>
             <div class="text-link-grid">
                 <a href="https://elementlee.itch.io/"    target="_blank" class="platform-link" style="font-size:0.85rem; font-weight:bold; color:#b23a40; top:1px;left:20px">&lt;Itch.io&gt;</a>
                 
             </div>
         </div>
 
-        <p class="contact-email">Email:: elementlee1000@gmail.com</p>
+        <p class="contact-email"><span lang="en">Email:: elementlee1000@gmail.com</span><span lang="zh">邮箱：elementlee1000@gmail.com</span></p>
     </main>
 
     <footer>

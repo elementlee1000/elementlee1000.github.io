@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only light">
-    <title>Element Lee | Artworks</title>
+    <title data-en="Element Lee | Artworks" data-zh="李元素 | 作品">Element Lee | Artworks</title>
     <link rel="icon" type="image/png" href="images/main/logo.png">
+    <script src="i18n.js"></script>
     <style>
         /* ── Base ───────────────────────────────────── */
         :root { color-scheme: only light; }
+
+        /* 语言切换：只显示当前语言的元素（i18n.js 负责设置 html[data-lang]） */
+        html[data-lang="en"] [lang="zh"] { display: none !important; }
+        html[data-lang="zh"] [lang="en"] { display: none !important; }
         *, *::before, *::after {
             margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -31,9 +36,6 @@
         h2.section-title { font-size: 2rem; font-weight: 300; margin-bottom: 3rem; text-align: left; }
         p.description { font-size: 0.9rem; color: #666; margin-bottom: 2rem; max-width: 800px; }
 
-        .series-index { margin-top: 1.5rem; line-height: 2; }
-        .series-list { margin-left: 1rem; font-size: 0.9rem; font-style: italic; color: #666; line-height: 2; }
-
         #artworks-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -53,8 +55,6 @@
         .artwork-info h3 { font-size: 0.85rem; font-weight: 500; margin: 0; line-height: 1.4; }
         .info-colon { display: block; font-size: 0.85rem; color: #555; line-height: 1.2; margin-top: 0.1rem; }
         .artwork-info p { font-size: 0.75rem; color: #888; margin-top: 0.2rem; line-height: 1.4; }
-
-        .artworks-footer-links { margin-top: 3rem; }
 
         /* ── Footer ─────────────────────────────────── */
         footer { text-align: center; padding: 2rem; margin-top: 4rem; }
@@ -76,28 +76,18 @@
 <body>
     <nav>
         <ul class="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="artworks.html" class="active">ARTWORKS</a></li>
-            <li><a href="exhibitions.html">EXHIBITIONS</a></li>
-            <li><a href="articles.html">ARTICLES</a></li>
+            <li><a href="index.html"><span lang="en">HOME</span><span lang="zh">首页</span></a></li>
+            <li><a href="artworks.html" class="active"><span lang="en">ARTWORKS</span><span lang="zh">作品</span></a></li>
+            <li><a href="exhibitions.html"><span lang="en">EXHIBITIONS</span><span lang="zh">展览</span></a></li>
+            <li><a href="articles.html"><span lang="en">ARTICLES</span><span lang="zh">文章</span></a></li>
+            <li><a href="#" id="lang-toggle"><span lang="en">中文</span><span lang="zh">EN</span></a></li>
         </ul>
     </nav>
 
     <main id="artworks-main">
-        <h2 class="section-title">Artworks</h2>
-
-        <p class="series-index description">
-            Series / Methodologies:<br>
-        </p>
-        <p class="series-list" id="series-list"></p>
+        <h2 class="section-title"><span lang="en">Artworks</span><span lang="zh">作品</span></h2>
 
         <div id="artworks-list"></div>
-
-        <div class="description artworks-footer-links">
-            <a href="#">Digital Paintings</a>_<br>
-            <a href="#">Drawing Network</a>_<br><br>
-            <a href="#">Video works</a>
-        </div>
     </main>
 
     <footer>
@@ -109,40 +99,44 @@
         .then(r => r.json())
         .then(data => {
             const list = document.getElementById('artworks-list');
-            const series = document.getElementById('series-list');
 
-            // 类别列表由 manifest.json 动态生成：
-            // 在 images/Artworks 下增删类别文件夹并运行 scan_images.py 后，此处自动更新，无需改本页
-            data.artworks.forEach((artwork, i) => {
-                if (i > 0) series.appendChild(document.createTextNode(' ,  '));
-                series.appendChild(document.createTextNode(artwork.title || artwork.folder));
-            });
-            const cursor = document.createElement('img');
-            cursor.src = 'images/cursor-pointer.png';
-            cursor.alt = '';
-            cursor.style.cssText = 'width:16px; vertical-align:middle; margin-left:6px;';
-            series.appendChild(cursor);
+            // 缩略图只随机选一次，避免切换语言时图片跳动
+            const thumbs = data.artworks.map(a => a.images.length
+                ? a.images[Math.floor(Math.random() * a.images.length)]
+                : '');
 
-            data.artworks.forEach(artwork => {
-                if (!artwork.images.length) return;
+            function esc(s) {
+                return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+            }
 
-                const randomFile = artwork.images[Math.floor(Math.random() * artwork.images.length)];
-                const imgSrc = 'images/Artworks/' + encodeURIComponent(artwork.folder) + '/' + encodeURIComponent(randomFile);
+            function render() {
+                list.textContent = '';
 
-                const a = document.createElement('a');
-                a.href = 'project-detail.html?p=' + encodeURIComponent(artwork.folder);
-                a.className = 'artwork-card';
+                data.artworks.forEach((artwork, i) => {
+                    if (!artwork.images.length) return;
 
-                a.innerHTML =
-                    '<img class="artwork-thumb" src="' + imgSrc + '" alt="' + artwork.title + '">' +
-                    '<div class="artwork-info">' +
-                        '<h3>' + artwork.title + '</h3>' +
-                        '<span class="info-colon">:</span>' +
-                        (artwork.description ? '<p>' + artwork.description + '</p>' : '') +
-                    '</div>';
+                    const imgSrc = 'images/Artworks/' + encodeURIComponent(artwork.folder) + '/' + encodeURIComponent(thumbs[i]);
+                    const title = I18N.pick(artwork, 'title') || artwork.folder;
+                    const desc = I18N.pick(artwork, 'description');
 
-                list.appendChild(a);
-            });
+                    const a = document.createElement('a');
+                    a.href = 'project-detail.html?p=' + encodeURIComponent(artwork.folder);
+                    a.className = 'artwork-card';
+
+                    a.innerHTML =
+                        '<img class="artwork-thumb" src="' + imgSrc + '" alt="' + esc(title) + '">' +
+                        '<div class="artwork-info">' +
+                            '<h3>' + esc(title) + '</h3>' +
+                            '<span class="info-colon">:</span>' +
+                            (desc ? '<p>' + esc(desc) + '</p>' : '') +
+                        '</div>';
+
+                    list.appendChild(a);
+                });
+            }
+
+            I18N.onChange(render);
+            render();
         });
     </script>
 </body>

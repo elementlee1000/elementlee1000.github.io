@@ -22,20 +22,28 @@ def scan():
 
         # 读 info.json（可选）覆盖标题/描述
         title = folder  # 文件夹名直接作为标题
+        title_zh = ""   # 中文标题（站点切换中文时使用，留空则回退英文）
         description = ""
+        description_zh = ""
         info_path = os.path.join(folder_path, "info.json")
         if os.path.exists(info_path):
             with open(info_path, encoding="utf-8") as f:
                 info = json.load(f)
                 if info.get("title"):
                     title = info["title"]
+                if info.get("title_zh"):
+                    title_zh = info["title_zh"]
                 if info.get("description"):
                     description = info["description"]
+                if info.get("description_zh"):
+                    description_zh = info["description_zh"]
 
         artworks.append({
             "folder": folder,
             "title": title,
+            "title_zh": title_zh,
             "description": description,
+            "description_zh": description_zh,
             "images": files
         })
         print(f"  {folder}: {len(files)} images")

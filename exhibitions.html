@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only light">
-    <title>Element Lee | Exhibitions</title>
+    <title data-en="Element Lee | Exhibitions" data-zh="李元素 | 展览">Element Lee | Exhibitions</title>
     <link rel="icon" type="image/png" href="images/main/logo.png">
+    <script src="i18n.js"></script>
     <style>
         /* ── Base ───────────────────────────────────── */
         :root { color-scheme: only light; }
+
+        /* 语言切换：只显示当前语言的元素（i18n.js 负责设置 html[data-lang]） */
+        html[data-lang="en"] [lang="zh"] { display: none !important; }
+        html[data-lang="zh"] [lang="en"] { display: none !important; }
         *, *::before, *::after {
             margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -63,27 +68,28 @@
 <body>
     <nav>
         <ul class="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="artworks.html">ARTWORKS</a></li>
-            <li><a href="exhibitions.html" class="active">EXHIBITIONS</a></li>
-            <li><a href="articles.html">ARTICLES</a></li>
+            <li><a href="index.html"><span lang="en">HOME</span><span lang="zh">首页</span></a></li>
+            <li><a href="artworks.html"><span lang="en">ARTWORKS</span><span lang="zh">作品</span></a></li>
+            <li><a href="exhibitions.html" class="active"><span lang="en">EXHIBITIONS</span><span lang="zh">展览</span></a></li>
+            <li><a href="articles.html"><span lang="en">ARTICLES</span><span lang="zh">文章</span></a></li>
+            <li><a href="#" id="lang-toggle"><span lang="en">中文</span><span lang="zh">EN</span></a></li>
         </ul>
     </nav>
 
     <main id="exhibitions-main">
-        <h2 class="section-title">Exhibitions</h2>
+        <h2 class="section-title"><span lang="en">Exhibitions</span><span lang="zh">展览</span></h2>
 
         <div class="exhibition-list">
-            <p class="exhibition-entry"><span class="ex-year">2026</span><span class="ex-title"><em>Digital Handicraft</em>, University of Applied Art, Vienna</span></p><p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title"><em>A Drawing Network of Caves</em>, University of Applied Art, Vienna</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title"><em>Modernism's Punctum</em>, Yancheng Museum, Yancheng, China</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title"><em>5202</em>, Schauraum, Museumsquartier, Vienna</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title"><em>Pixel Cartography</em>, Expanded.Art, Berlin</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title"><em>Look at Me for Long</em>, Schauraum, MQ, Vienna</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title"><em>Happy Expressions</em>, Nantong Museum, China</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2020</span><span class="ex-title"><em>Home-coming Islet</em>, Yuan Museum, Chongqing, China</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2019</span><span class="ex-title"><em>The Synthetic Era</em>, MoCA Shanghai, Shanghai</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2019</span><span class="ex-title"><em>Future Intelligence</em>, Tank Shanghai, Shanghai</span></p>
-            <p class="exhibition-entry"><span class="ex-year">2016</span><span class="ex-title">CAFA Biennale, CAFA Art Museum, Beijing</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2026</span><span class="ex-title" lang="en"><em>Digital Handicraft</em>, University of Applied Art, Vienna</span><span class="ex-title" lang="zh"><em>数字手艺</em>，维也纳应用艺术大学</span></p><p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title" lang="en"><em>A Drawing Network of Caves</em>, University of Applied Art, Vienna</span><span class="ex-title" lang="zh"><em>洞穴绘图网络</em>，维也纳应用艺术大学</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title" lang="en"><em>Modernism's Punctum</em>, Yancheng Museum, Yancheng, China</span><span class="ex-title" lang="zh"><em>现代主义的刺点</em>，盐城博物馆，中国盐城</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2025</span><span class="ex-title" lang="en"><em>5202</em>, Schauraum, Museumsquartier, Vienna</span><span class="ex-title" lang="zh"><em>5202</em>，Schauraum，维也纳博物馆区</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title" lang="en"><em>Pixel Cartography</em>, Expanded.Art, Berlin</span><span class="ex-title" lang="zh"><em>像素制图</em>，Expanded.Art，柏林</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title" lang="en"><em>Look at Me for Long</em>, Schauraum, MQ, Vienna</span><span class="ex-title" lang="zh"><em>长久地注视我</em>，Schauraum，维也纳博物馆区（MQ）</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2024</span><span class="ex-title" lang="en"><em>Happy Expressions</em>, Nantong Museum, China</span><span class="ex-title" lang="zh"><em>快乐的表情</em>，南通博物馆，中国</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2020</span><span class="ex-title" lang="en"><em>Home-coming Islet</em>, Yuan Museum, Chongqing, China</span><span class="ex-title" lang="zh"><em>归乡小岛</em>，原美术馆，中国重庆</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2019</span><span class="ex-title" lang="en"><em>The Synthetic Era</em>, MoCA Shanghai, Shanghai</span><span class="ex-title" lang="zh"><em>合成时代</em>，上海当代艺术馆，上海</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2019</span><span class="ex-title" lang="en"><em>Future Intelligence</em>, Tank Shanghai, Shanghai</span><span class="ex-title" lang="zh"><em>未来智能</em>，上海油罐艺术中心，上海</span></p>
+            <p class="exhibition-entry"><span class="ex-year">2016</span><span class="ex-title" lang="en">CAFA Biennale, CAFA Art Museum, Beijing</span><span class="ex-title" lang="zh">中央美术学院双年展，中央美术学院美术馆，北京</span></p>
         </div>
 
         <div class="organic-image-grid" id="exhibition-gallery"></div>

@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="only light">
-    <title>Element Lee | Articles</title>
+    <title data-en="Element Lee | Articles" data-zh="李元素 | 文章">Element Lee | Articles</title>
     <link rel="icon" type="image/png" href="images/main/logo.png">
+    <script src="i18n.js"></script>
     <style>
         /* ── Base ───────────────────────────────────── */
         :root { color-scheme: only light; }
+
+        /* 语言切换：只显示当前语言的元素（i18n.js 负责设置 html[data-lang]） */
+        html[data-lang="en"] [lang="zh"] { display: none !important; }
+        html[data-lang="zh"] [lang="en"] { display: none !important; }
         *, *::before, *::after {
             margin: 0; padding: 0; box-sizing: border-box;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -52,30 +57,31 @@
 <body>
     <nav>
         <ul class="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="artworks.html">ARTWORKS</a></li>
-            <li><a href="exhibitions.html">EXHIBITIONS</a></li>
-            <li><a href="articles.html" class="active">ARTICLES</a></li>
+            <li><a href="index.html"><span lang="en">HOME</span><span lang="zh">首页</span></a></li>
+            <li><a href="artworks.html"><span lang="en">ARTWORKS</span><span lang="zh">作品</span></a></li>
+            <li><a href="exhibitions.html"><span lang="en">EXHIBITIONS</span><span lang="zh">展览</span></a></li>
+            <li><a href="articles.html" class="active"><span lang="en">ARTICLES</span><span lang="zh">文章</span></a></li>
+            <li><a href="#" id="lang-toggle"><span lang="en">中文</span><span lang="zh">EN</span></a></li>
         </ul>
     </nav>
 
     <main id="articles-main">
-        <h2>Articles</h2>
+        <h2><span lang="en">Articles</span><span lang="zh">文章</span></h2>
         <!-- 替换为实际像素画书本图片路径 -->
         <img class="articles-book" src="images/main/articles-book.png" alt="">
 
         <div class="articles-category">
-            <p class="articles-label">Essays:</p>
-            <a class="articles-link" href="https://base.uni-ak.ac.at/cloud/index.php/s/8d8r4imcs3Rnpfw" target="_blank" style="padding-left:2em;">A Text Network of Rooms — on artistic freedom and survival</a>
+            <p class="articles-label"><span lang="en">Essays:</span><span lang="zh">随笔：</span></p>
+            <a class="articles-link" href="https://base.uni-ak.ac.at/cloud/index.php/s/8d8r4imcs3Rnpfw" target="_blank" style="padding-left:2em;"><span lang="en">A Text Network of Rooms — on artistic freedom and survival</span><span lang="zh">《房间的文本网络》—— 论艺术自由与生存</span></a>
         </div>
 
         <div class="articles-category">
-            <p class="articles-label" style="padding-left:3em;">Interviews:</p>
-            <a class="articles-link" href="https://objkt.com/collections/exhibitions/projects/first-and-last-lines-that-hold-worlds-31558906/exhibition" target="_blank" style="padding-left:4em;">First and Last Lines That Hold Worlds</a>
-            <a class="articles-link" href="https://www.expanded.art/articles/interview-element-lee" target="_blank" style="padding-left:5em;">Expanded.Art - ELEMENT LEE: "A SENSE OF BELONGING"</a>
-            <a class="articles-link" href="https://oneofoneart.substack.com/p/making-fresh-pixel-art-on-the-phone" target="_blank" style="padding-left:6em;">One of One - Making Fresh Pixel Art on the Phone (Issue #16)</a>
-            <a class="articles-link" href="https://mp.weixin.qq.com/s/HWhZgomPftaWbJPFj5G_Xg" target="_blank" style="padding-left:7em;">象外采访 - 李元素。</a>
-            <a class="articles-link" href="https://mp.weixin.qq.com/s/NF6E5Gc7GWulIca13Nh6Vg" target="_blank" style="padding-left:8em;">3ge3 - 游龙盘踞在电子世界</a>
+            <p class="articles-label" style="padding-left:3em;"><span lang="en">Interviews:</span><span lang="zh">访谈：</span></p>
+            <a class="articles-link" href="https://objkt.com/collections/exhibitions/projects/first-and-last-lines-that-hold-worlds-31558906/exhibition" target="_blank" style="padding-left:4em;"><span lang="en">First and Last Lines That Hold Worlds</span><span lang="zh">《撑起世界的第一行与最后一行》</span></a>
+            <a class="articles-link" href="https://www.expanded.art/articles/interview-element-lee" target="_blank" style="padding-left:5em;"><span lang="en">Expanded.Art - ELEMENT LEE: "A SENSE OF BELONGING"</span><span lang="zh">Expanded.Art —— 李元素：「一种归属感」</span></a>
+            <a class="articles-link" href="https://oneofoneart.substack.com/p/making-fresh-pixel-art-on-the-phone" target="_blank" style="padding-left:6em;"><span lang="en">One of One - Making Fresh Pixel Art on the Phone (Issue #16)</span><span lang="zh">One of One —— 在手机上创作新鲜的像素艺术（第 16 期）</span></a>
+            <a class="articles-link" href="https://mp.weixin.qq.com/s/HWhZgomPftaWbJPFj5G_Xg" target="_blank" style="padding-left:7em;"><span lang="en">Xiangwai Interview — Element Lee</span><span lang="zh">象外采访 - 李元素。</span></a>
+            <a class="articles-link" href="https://mp.weixin.qq.com/s/NF6E5Gc7GWulIca13Nh6Vg" target="_blank" style="padding-left:8em;"><span lang="en">3ge3 — A Dragon Coiling in the Digital World</span><span lang="zh">3ge3 - 游龙盘踞在电子世界</span></a>
         </div>
 
        <!-- <div class="articles-category">
