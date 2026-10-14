@@ -1,18 +1,37 @@
 {
   "artworks": [
     {
+      "folder": "Apps",
+      "title": "Apps",
+      "title_zh": "",
+      "description": "",
+      "description_zh": "",
+      "images": [
+        "Buildscape (1).png",
+        "Buildscape (2).png",
+        "bit​ converter​.png",
+        "draw ascii.png",
+        "draw pixel.png",
+        "simple​ viewer​.png"
+      ]
+    },
+    {
       "folder": "Ascii-art",
       "title": "ASCII (character-based art)",
       "title_zh": "ASCII（字符艺术）",
       "description": "",
       "description_zh": "",
       "images": [
+        "Ascii - 260922 - 85.png",
+        "Ascii - 260930 - 48.png",
+        "Ascii - 261013 - 118 (1).png",
         "AsciiEdit - 260126 - 700p-export.png",
         "Bridge-export.png",
         "Cave-export.png",
         "Chart-export.png",
         "Flat Mountain-export.png",
         "Platform-export.png",
+        "ScreenShot_2026-10-11_104636_938.png",
         "Section-export.png",
         "Tele-temple-export.png",
         "Terminal-export.png",
