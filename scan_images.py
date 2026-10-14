@@ -55,5 +55,18 @@ def scan():
 
     print(f"\nWrote {out}  ({len(artworks)} artworks)")
 
+def scan_exhibition():
+    exhibition_dir = os.path.join("images", "Exhibition")
+    if not os.path.isdir(exhibition_dir):
+        return
+
+    files = sorted(f for f in os.listdir(exhibition_dir) if f.lower().endswith(EXTS))
+    out = os.path.join(exhibition_dir, "manifest.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump({"images": files}, f, indent=2, ensure_ascii=False)
+
+    print(f"Wrote {out}  ({len(files)} exhibition images)")
+
 if __name__ == "__main__":
     scan()
+    scan_exhibition()
