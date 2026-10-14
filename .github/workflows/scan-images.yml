@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'images/**'
+      - 'scan_images.py'
+      - '.github/workflows/scan-images.yml'
 
 jobs:
   scan:
